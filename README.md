@@ -1,4 +1,4 @@
-# paper_ridgeline_plots
+# Distribution visualizazion
 
-This repo contains the coe to create the stacks for the paper by Duccio Rocchini et al.:
-Sensing the pulse of Earth
+Code for the paper:
+A distribution-based visualization framework for geographical raster data in R
