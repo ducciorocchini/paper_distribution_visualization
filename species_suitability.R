@@ -1,3 +1,4 @@
+
 # packages
 library(terra)         # for SpatRaster and c()
 library(virtualspecies)
@@ -97,43 +98,14 @@ species_suitability <- simulate_three_species(
 
 plot(species_suitability$dec)   # SpatRaster: layers y2000..y2020 (declining species)
 
-im.ridgeline(species_suitability$inc,  scale = 2, palette = "viridis")
-im.ridgeline(species_suitability$dec,  scale = 2, palette = "viridis")
-im.ridgeline(species_suitability$stab, scale = 2, palette = "magma")
+#-----
 
-im.ridgeline(species_suitability$stab, scale = 2, palette = "viridis") +
-  labs(
-    y    = "year",
-    x    = "values",
-    fill = "suitability"
-  )
 
-# ---- Map plotting ----
-# rename layers removing the "y" prefix (FIX: use 'stab' names rather than 'dec')
-names(species_suitability$stab) <- gsub("y", "", names(species_suitability$stab))
+# boxplot
 
-plot(
-  species_suitability$stab,
-  col  = hcl.colors(20, "viridis"),
-  axes = FALSE,
-  mar  = c(3, 3, 2, 6),
-  plg  = list(title = "Suitability")
-)
-
-# =========================
-# Saver: write stacks to disk
-# =========================
-# Save the whole object (quickest way to reload everything later)
-saveRDS(species_suitability, "species_suitability.Rds")
-
-# Save ONE multi-band GeoTIFF per species (bands = years)
-out_dir <- "ss_out"
-dir.create(out_dir, showWarnings = FALSE)
-
-for (sp in names(species_suitability)) {
-  terra::writeRaster(
-    species_suitability[[sp]],
-    filename = file.path(out_dir, paste0(sp, "_stack.tif")),
-    overwrite = TRUE
-  )
-}
+im.boxplot.layers(species_suitability$inc,
+   density = TRUE,
+   median_labels = TRUE,
+   limits = c(0.01, 0.99),
+   custom_colors = viridis::viridis(4, end = 0.5)
+ )
