@@ -4,6 +4,7 @@ library(virtualspecies)
 library(imageRy)
 library(geodata)
 library(ggplot2)
+library(viridis)
 
 # climate (WorldClim v2.1 at 0.5 arc-min)
 tmin <- worldclim_country("Lux", "tmin", path = tempdir(), res = 0.5, version = "2.1")
@@ -95,7 +96,8 @@ species_suitability <- simulate_three_species(
   rescale = TRUE                       # important, avoids collapse to ~0
 )
 
-plot(species_suitability$dec)   # SpatRaster: layers y2000..y2020 (declining species)
+plot(species_suitability$inc)   # SpatRaster: layers y2000..y2020 (increasing species)
+plot(species_suitability$inc, col=rocket(100))
 
 #-----
 
