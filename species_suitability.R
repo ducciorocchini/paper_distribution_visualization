@@ -1,4 +1,3 @@
-
 # packages
 library(terra)         # for SpatRaster and c()
 library(virtualspecies)
