@@ -1,8 +1,9 @@
 library(terra)
+library(imageRy)
 library(viridis)
 
 # Import the UAV RGB image
-canale <- rast("canale.jpg")
+canale <- rast("~/Documents/ridgeline_plots/paper_ridgeline_plots/R1/canale_aquila.JPG")
 
 # Partition the image into four spectral classes using k-means clustering
 classes <- im.classify(
