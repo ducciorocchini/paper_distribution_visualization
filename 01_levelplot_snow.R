@@ -6,6 +6,7 @@ library(imageRy)
 
 # Import image
 blet <- im.import("bach")
+blet <- flip(blet)
 
 # Plot
 plot(blet)
