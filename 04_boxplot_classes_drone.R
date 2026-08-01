@@ -4,6 +4,7 @@ library(viridis)
 
 # Import the UAV RGB image
 canale <- rast("https://zenodo.org/records/21326622/files/dji_fly_20250409_063452_0009_1744199090642_photo.JPG")
+canale <- flip(canale)
 plot(canale)
 
 # Partition the image into four spectral classes using k-means clustering
