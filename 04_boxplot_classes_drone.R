@@ -22,6 +22,5 @@ im.boxplot.classes(
   layer = 2,
   density = TRUE,
   median_labels = TRUE,
-  limits = c(0.01, 0.99),
-  custom_colors = viridis::viridis(4, end = 0.5)
+  limits = c(0.01, 0.99)
 )
