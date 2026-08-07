@@ -2,7 +2,6 @@ setwd("~/Downloads/ndvi")
 
 library(terra)
 
-
 ndvi01jan <- rast("Sentinel2_2020-01-24_ndvi.tif")
 ndvi02feb <- rast("Sentinel2_2020-02-21_ndvi.tif ")
 ndvi03mar <- rast("Sentinel2_2020-03-12_ndvi.tif")
