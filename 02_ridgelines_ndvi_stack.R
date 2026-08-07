@@ -41,27 +41,5 @@ names(ndvi)[2] <- "Sentinel2_2020-02-21_ndvi"
 
 names(ndvi)
 
-# ndvi_clump <- clumps(ndvi, directions=8)
-
-# plot(ndvi_clump)
-
-# Write the clumped raster to a file
-# writeRaster(ndvi_clump, "ndvi_clump.tif", overwrite=TRUE)
-
-# Load the clumped raster from the file
-# ndvi_clump <- rast("ndvi_clump.tif")
-
-# Calculate the frequency of each clump
-# freq_table <- freq(ndvi_clump)
-# print(freq_table)
-
-# Calculate the area of each clump
-# pixel_area <- res(ndvi_clump)[1] * res(ndvi_clump)[2]  # Area of a single pixel
-# freq_table <- as.data.frame(freq_table)
-# freq_table$area <- freq_table$count * pixel_area
-
-# Print the area of each clump
-# print(freq_table)
-# Save the frequency table to a CSV file
-# write.csv(freq_table, "ndvi_clump_areas.csv", row.names=FALSE)
-
+im.ridgeline(ndvi, scale=2)
+im.ridgeline(ndvi, scale=2, color="quartile")
